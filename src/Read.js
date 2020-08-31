@@ -26,7 +26,7 @@ class Read extends React.Component {
 
           {ReadBooks.map((book) =>
               <li>
-                <Book authors={book.authors} title={book.title} bgPic={book.imageLinks.thumbnail} shelf={book.shelf}/>
+                <Book book={book} onChangeShelf={this.props.onChangeShelf}/>
               </li>
 
             )}

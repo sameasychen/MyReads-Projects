@@ -15,14 +15,15 @@ class CurrentlyReading extends React.Component {
 
   }
 
-  filterCurrentlyReading(bookshelf){
-      return bookshelf.shelf==="currentlyReading"
-    }
+  filterCurrentlyReading(bookshelf) {
+    return bookshelf.shelf === "currentlyReading"
+  }
 
   render() {
 
     const CurrentlyReadingBooks = this.props.books.filter(this.filterCurrentlyReading);
 
+    console.log(CurrentlyReadingBooks);
 
     return (
       <div className="bookshelf">
@@ -30,9 +31,11 @@ class CurrentlyReading extends React.Component {
         <div className="bookshelf-books">
           <ol className="books-grid">
 
-          {CurrentlyReadingBooks.map((book) =>
+
+
+            {CurrentlyReadingBooks.map((book) =>
               <li>
-                <Book authors={book.authors} title={book.title} bgPic={book.imageLinks.thumbnail} shelf={book.shelf}/>
+                <Book book={book} onChangeShelf={this.props.onChangeShelf}/>
               </li>
 
             )}
@@ -47,6 +50,7 @@ class CurrentlyReading extends React.Component {
 
 CurrentlyReading.propTypes = {
   books: PropTypes.array.isRequired,
+  onChangeShelf: PropTypes.func.isRequired,
 };
 
 export default CurrentlyReading

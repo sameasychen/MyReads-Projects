@@ -8,14 +8,8 @@ import CurrentlyReading from './CurrentlyReading'
 import WanttoRead from './WanttoRead'
 import Read from './Read'
 
-class BooksApp extends React.Component {
+class App extends React.Component {
   state = {
-    /**
-     * TODO: Instead of using this state variable to keep track of which page
-     * we're on, use the URL in the browser's address bar. This will ensure that
-     * users can use the browser's back and forward buttons to navigate between
-     * pages, as well as provide a good URL they can bookmark and share.
-     */
     books: [],
   }
 
@@ -25,16 +19,30 @@ class BooksApp extends React.Component {
 
   }
 
+
+  changeShelf(book, shelf){
+
+    let newList = this.state.books.slice(0);
+    console.log("state" + newList);
+    
+    //BooksAPI.update(book,shelf);
+    
+    // .then(
+    //   response => {
+    //     let newList = this.state.books.slice(0);
+    //     console.log("state" + newList);
+    //     const books = newList.filter(listBook => listBook.id === book.id);
+    //   }
+
+    // )
+  }
+
   render() {
-    console.log(this.state.books)
+    console.log("cur State:"+this.state.books)
     return (
       <div className="app">
 
-
-        <Route path='/search' render={() => (<SearchPage />)}
-
-        />
-
+        <Route path='/search' render={() => (<SearchPage />)}/>
 
         <Route exact path='/' render={() => (
           <div className="list-books">
@@ -43,9 +51,9 @@ class BooksApp extends React.Component {
             </div>
             <div className="list-books-content">
               <div>
-                <CurrentlyReading books={this.state.books}/>
-                <WanttoRead books={this.state.books}/>
-                <Read books={this.state.books}/>
+                <CurrentlyReading books={this.state.books} onChangeShelf={this.changeShelf}/>
+                <WanttoRead books={this.state.books} onChangeShelf={this.changeShelf}/>
+                <Read books={this.state.books} onChangeShelf={this.changeShelf}/>
               </div>
             </div>
 
@@ -64,4 +72,4 @@ class BooksApp extends React.Component {
   }
 }
 
-export default BooksApp
+export default App
