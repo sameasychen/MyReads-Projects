@@ -11,12 +11,28 @@ import Read from './Read'
 class App extends React.Component {
   state = {
     books: [],
+    newBook: true,
   }
 
   componentDidMount() {
-    BooksAPI.getAll()
-      .then((books) => { this.setState(() => ({ books })) })
+    if (this.state.newBook) {
+      this.refreshAllBooks();
+    }
 
+  }
+
+  refreshAllBooks=()=>{
+    BooksAPI.getAll()
+    .then((books) => { this.setState(() => ({
+       books: books,
+       newBook: false,
+      }));
+     })
+
+  }
+
+  bookAdded =() => {
+    this.setState({newBook: true});
   }
 
 

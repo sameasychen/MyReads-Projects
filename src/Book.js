@@ -17,15 +17,9 @@ class Book extends React.Component {
 
     }
 
-    // componentWillReceivePorps =(props)=> {
-    //     this.props = props;
-    //     this.setState({shelfSelection: this.props.book.shelf})
-    // }
-
-
     render() {
       
-        var bgPic = this.props.book.imageLinks.thumbnail;
+        var bgPic = (this.props.book.imageLinks && `url(${this.props.book.imageLinks.thumbnail})`);
 
         return (
             <div className="book">
@@ -33,7 +27,7 @@ class Book extends React.Component {
                     <div className="book-cover" style={{
                         width: 128,
                         height: 193,
-                        backgroundImage: "url(" + bgPic + ")",
+                        backgroundImage: bgPic,
                     }}></div>
                     <div className="book-shelf-changer">
                         <select 

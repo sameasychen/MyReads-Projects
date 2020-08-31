@@ -12,38 +12,47 @@ class SearchPage extends React.Component {
 
   }
 
+  queryTimer = null;
+
   changeQuery = (event) => {
+    
+    clearTimeout(this.queryTimer);
     const { name, value } = event.target;
     this.setState({ [name]: value });
-    this.updateSearch();
+    
+    this.queryTimer = setTimeout(this.updateSearch, 200);
+    console.log("query: "+ this.state.query);
+    console.log(this.state.books);
+    console.log("Change Query");
+
   }
 
   updateSearch = () => {
-
-    console.log(this.state.query);
 
     if (this.state.query === "") {
       this.setState({ books: [] });
       return;
     }
-
+      console.log("Search");
       BooksAPI.search(this.state.query)
       .then(response => {
         //let newList =[];
-        if (response.length === 0) {
+        if (response === undefined) {
           console.log("No matching.")
         } else if (response.length) {
 
           this.setState({ books: response });
         }
-
       })
+
+
   }
 
   render() {
 
-    console.log(this.state.query);
+    // console.log("query: "+this.state.query);
     //console.log(this.state.books);
+
     return (
       <div className="search-books">
         <div className="search-books-bar">
