@@ -20,29 +20,39 @@ class App extends React.Component {
   }
 
 
-  changeShelf(book, shelf){
+  changeShelf=(book, shelf)=>{
 
-    let newList = this.state.books.slice(0);
-    console.log("state" + newList);
-    
-    //BooksAPI.update(book,shelf);
-    
-    // .then(
-    //   response => {
-    //     let newList = this.state.books.slice(0);
-    //     console.log("state" + newList);
-    //     const books = newList.filter(listBook => listBook.id === book.id);
-    //   }
 
-    // )
+    
+    BooksAPI.update(book,shelf)
+    .then(
+      response => {
+        let newList = this.state.books.slice(0);
+  
+        const books = newList.filter(listBook => listBook.id === book.id);
+        if (books.length){
+          books[0].shelf=shelf;
+
+        }
+        else{
+          book.shelf=shelf;
+          newList.push(book);
+          
+        }
+        this.setState({books:newList})
+      }
+
+    )
   }
 
   render() {
-    console.log("cur State:"+this.state.books)
+
+    console.log(this.state.books)
+
     return (
       <div className="app">
 
-        <Route path='/search' render={() => (<SearchPage />)}/>
+        <Route path='/search' render={() => (<SearchPage books={this.state.books} onChangeShelf={this.changeShelf}/>)}/>
 
         <Route exact path='/' render={() => (
           <div className="list-books">

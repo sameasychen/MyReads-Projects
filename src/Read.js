@@ -25,7 +25,7 @@ class Read extends React.Component {
           <ol className="books-grid">
 
           {ReadBooks.map((book) =>
-              <li>
+              <li key={book.id}>
                 <Book book={book} onChangeShelf={this.props.onChangeShelf}/>
               </li>
 

@@ -1,26 +1,26 @@
 import React from 'react'
-import * as BooksAPI from './BooksAPI'
+//import * as BooksAPI from './BooksAPI'
 import './App.css'
 import PropTypes from 'prop-types'
 
 class Book extends React.Component {
     state = {
-        // thebook: null,
+        shelfSelection: this.props.book.shelf || "none"
         
     }
 
-    // componentDidMount(){
-    //     BooksAPI.get(this.props.match.params.id)
-    //     .then(resp => {
-    //       this.setState({ book: resp });
-    //     })
-    // }
 
     setShelf(target) {
     
+
         this.props.onChangeShelf(this.props.book, target);
 
     }
+
+    // componentWillReceivePorps =(props)=> {
+    //     this.props = props;
+    //     this.setState({shelfSelection: this.props.book.shelf})
+    // }
 
 
     render() {
@@ -36,11 +36,14 @@ class Book extends React.Component {
                         backgroundImage: "url(" + bgPic + ")",
                     }}></div>
                     <div className="book-shelf-changer">
-                        <select id="shelfselect"  onChange={(event)=>this.setShelf(event.target.value)}>
+                        <select 
+                            id="shelfselect"  
+                            value={this.state.shelfSelection}
+                            onChange={(event)=>this.setShelf(event.target.value)}>
                             <option value="move" disabled>Move to...</option>
-                            <option value="currentlyReading" >Currently Reading</option>
+                            <option value="currentlyReading">Currently Reading</option>
                             <option value="wantToRead">Want to Read</option>
-                            <option value="read" selected>Read</option>
+                            <option value="read">Read</option>
                             <option value="none">None</option>
                         </select>
                     </div>
