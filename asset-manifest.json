@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/MyReads-Projects/static/css/main.1c3f9d98.chunk.css",
-    "main.js": "/MyReads-Projects/static/js/main.70d1e3de.chunk.js",
-    "main.js.map": "/MyReads-Projects/static/js/main.70d1e3de.chunk.js.map",
-    "runtime-main.js": "/MyReads-Projects/static/js/runtime-main.04104cde.js",
-    "runtime-main.js.map": "/MyReads-Projects/static/js/runtime-main.04104cde.js.map",
-    "static/js/2.734af02c.chunk.js": "/MyReads-Projects/static/js/2.734af02c.chunk.js",
-    "static/js/2.734af02c.chunk.js.map": "/MyReads-Projects/static/js/2.734af02c.chunk.js.map",
-    "index.html": "/MyReads-Projects/index.html",
-    "precache-manifest.42309b78bcef18f9d228a913476726c1.js": "/MyReads-Projects/precache-manifest.42309b78bcef18f9d228a913476726c1.js",
-    "service-worker.js": "/MyReads-Projects/service-worker.js",
-    "static/css/main.1c3f9d98.chunk.css.map": "/MyReads-Projects/static/css/main.1c3f9d98.chunk.css.map",
-    "static/js/2.734af02c.chunk.js.LICENSE.txt": "/MyReads-Projects/static/js/2.734af02c.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/MyReads-Projects/static/media/arrow-drop-down.9d4e3f36.svg"
+    "main.css": "./static/css/main.69f03f5d.chunk.css",
+    "main.js": "./static/js/main.451b1b70.chunk.js",
+    "main.js.map": "./static/js/main.451b1b70.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.673723db.js",
+    "runtime-main.js.map": "./static/js/runtime-main.673723db.js.map",
+    "static/js/2.734af02c.chunk.js": "./static/js/2.734af02c.chunk.js",
+    "static/js/2.734af02c.chunk.js.map": "./static/js/2.734af02c.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.a18d103b4a957c660ad70fe9216e1ab6.js": "./precache-manifest.a18d103b4a957c660ad70fe9216e1ab6.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.69f03f5d.chunk.css.map": "./static/css/main.69f03f5d.chunk.css.map",
+    "static/js/2.734af02c.chunk.js.LICENSE.txt": "./static/js/2.734af02c.chunk.js.LICENSE.txt",
+    "static/media/App.css": "./static/media/arrow-drop-down.9d4e3f36.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.04104cde.js",
+    "static/js/runtime-main.673723db.js",
     "static/js/2.734af02c.chunk.js",
-    "static/css/main.1c3f9d98.chunk.css",
-    "static/js/main.70d1e3de.chunk.js"
+    "static/css/main.69f03f5d.chunk.css",
+    "static/js/main.451b1b70.chunk.js"
   ]
 }
